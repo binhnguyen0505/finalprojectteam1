@@ -116,6 +116,7 @@ public class NetworkManager : MonoBehaviour
     private void SpawnPlayer()
     {
          GameObject p= Network.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity, 0) as GameObject;
+	
 		var camera = GameObject.FindGameObjectWithTag ("MainCamera");
 		camera.GetComponent<CameraFollow> ().target = p.transform;
 
