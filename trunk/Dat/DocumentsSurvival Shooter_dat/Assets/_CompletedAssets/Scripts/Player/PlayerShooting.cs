@@ -68,15 +68,16 @@ namespace CompleteProject
         }
 
 
-        public void DisableEffects ()
+		public void DisableEffects ()
         {
             // Disable the line renderer and the light.
             gunLine.enabled = false;
             gunLight.enabled = false;
+
         }
 
 
-        void Shoot ()
+		[RPC]void Shoot ()
         {
             // Reset the timer.
             timer = 0f;
@@ -121,6 +122,8 @@ namespace CompleteProject
                 // ... set the second position of the line renderer to the fullest extent of the gun's range.
                 gunLine.SetPosition (1, shootRay.origin + shootRay.direction * range);
             }
+			if (networkView.isMine)
+				networkView.RPC("Shoot", RPCMode.OthersBuffered);
         }
     }
 }
