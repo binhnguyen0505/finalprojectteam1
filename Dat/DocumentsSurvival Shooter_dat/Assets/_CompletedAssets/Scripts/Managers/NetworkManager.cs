@@ -42,14 +42,14 @@ public class NetworkManager : MonoBehaviour
 	void Start()
 	{
 		MasterServer.ipAddress = "192.168.41.36";
-		Debug.Log ("start Network"+spawnPoints.Length );
+
 	}
 
     private void StartServer()
     {
         Network.InitializeServer(5, 22255, !Network.HavePublicAddress());
         MasterServer.RegisterHost(typeName, gameName);
-		Debug.Log ("start server"+ spawnPoints.Length );
+
 		//TODO 
 
 		//enemy.SetActive(true);
@@ -96,7 +96,7 @@ public class NetworkManager : MonoBehaviour
 
 	private void Spawn ()
 	{
-		Debug.Log (spawnPoints.Length );
+
 		// If the player has no health left...
 		//TODO
 		/*if(playerHealth.currentHealth <= 0f)
