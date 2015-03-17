@@ -68,12 +68,13 @@ namespace CompleteProject
         }
 
 
-		public void DisableEffects ()
+		[RPC] public void DisableEffects ()
         {
             // Disable the line renderer and the light.
             gunLine.enabled = false;
             gunLight.enabled = false;
-
+			if (networkView.isMine)
+				networkView.RPC("DisableEffects", RPCMode.OthersBuffered);
         }
 
 
