@@ -24,8 +24,8 @@ namespace CompleteProject
         void Update ()
         {
             // If the enemy and the player have health left...
-			if(networkView.isMine)
-			{
+			//if(networkView.isMine)
+			//{
 
 	            if(enemyHealth.currentHealth > 0 )//&& playerHealth.currentHealth > 0)
 	            {
@@ -38,7 +38,7 @@ namespace CompleteProject
 	                // ... disable the nav mesh agent.
 	                nav.enabled = false;
 	            }
-			{
+			//{
         }
     }
 }
