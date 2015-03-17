@@ -35,11 +35,14 @@ namespace CompleteProject
         void Update ()
         {
             // If the enemy should be sinking...
-            if(isSinking)
-            {
-                // ... move the enemy down by the sinkSpeed per second.
-                transform.Translate (-Vector3.up * sinkSpeed * Time.deltaTime);
-            }
+			if (networkView.isMine) {
+						
+	            if(isSinking)
+	            {
+	                // ... move the enemy down by the sinkSpeed per second.
+	                transform.Translate (-Vector3.up * sinkSpeed * Time.deltaTime);
+	            }
+			}
         }
 
 
@@ -71,7 +74,7 @@ namespace CompleteProject
         }
 
 
-        void Death ()
+		[RPC] void Death ()
         {
             // The enemy is dead.
             isDead = true;
@@ -85,6 +88,8 @@ namespace CompleteProject
             // Change the audio clip of the audio source to the death clip and play it (this will stop the hurt clip playing).
             enemyAudio.clip = deathClip;
             enemyAudio.Play ();
+			if (networkView.isMine)
+				networkView.RPC("Death", RPCMode.OthersBuffered);
         }
 
 
