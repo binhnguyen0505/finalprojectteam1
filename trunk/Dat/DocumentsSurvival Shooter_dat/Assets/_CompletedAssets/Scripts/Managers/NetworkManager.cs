@@ -12,10 +12,10 @@ public class NetworkManager : MonoBehaviour
 	//public GameObject enemy;
     public GameObject playerPrefab;
 
-	public PlayerHealth playerHealth;       // Reference to the player's heatlh.
-	public GameObject enemy;                // The enemy prefab to be spawned.
-	public float spawnTime = 3f;            // How long between each spawn.
-	public Transform[] spawnPoints ;         // An array of the spawn points this enemy can spawn from.
+	//public PlayerHealth playerHealth;       // Reference to the player's heatlh.
+	//public GameObject enemy;                // The enemy prefab to be spawned.
+	//public float spawnTime = 3f;            // How long between each spawn.
+	//public Transform[] spawnPoints ;         // An array of the spawn points this enemy can spawn from.
 
 
     void OnGUI()
@@ -41,7 +41,7 @@ public class NetworkManager : MonoBehaviour
 
 	void Start()
 	{
-		MasterServer.ipAddress = "192.168.41.36";
+		MasterServer.ipAddress = "192.168.1.78";
 
 	}
 
@@ -53,7 +53,7 @@ public class NetworkManager : MonoBehaviour
 		//TODO 
 
 		//enemy.SetActive(true);
-		InvokeRepeating ("Spawn", spawnTime, spawnTime);
+		//InvokeRepeating ("Spawn", spawnTime, spawnTime);
 
 
     }
@@ -94,31 +94,35 @@ public class NetworkManager : MonoBehaviour
         SpawnPlayer();
     }
 
-	private void Spawn ()
+	/*private void Spawn ()
 	{
 
 		// If the player has no health left...
 		//TODO
-		/*if(playerHealth.currentHealth <= 0f)
+		if(playerHealth.currentHealth <= 0f)
 		{
 			// ... exit the function.
 			return;
-		}*/
+		}
 		
 		// Find a random index between zero and one less than the number of spawn points.
 		int spawnPointIndex = Random.Range (0, spawnPoints.Length);
 
 		// Create an instance of the enemy prefab at the randomly selected spawn point's position and rotation.
 		Network.Instantiate(enemy, spawnPoints[spawnPointIndex].position, spawnPoints[spawnPointIndex].rotation,1) ;
-	}
+	}*/
 
 
     private void SpawnPlayer()
     {
          GameObject p= Network.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity, 0) as GameObject;
-	
+		
 		var camera = GameObject.FindGameObjectWithTag ("MainCamera");
 		camera.GetComponent<CameraFollow> ().target = p.transform;
-
+		//Slider healthSlider = GetComponent<Slider> ();
+		//healthSlider.value = p.currentHealth;
+		var Slider = GameObject.FindGameObjectWithTag ("SliderHealth");
+		Slider.GetComponent<CameraFollowSlider> ().target = p.transform;
+		Canvas SliderHealth = GetComponent<Canvas> ();
     }
 }

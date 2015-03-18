@@ -18,6 +18,7 @@ GameObject:
   - 114: {fileID: 11400000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400006}
+  - 148: {fileID: 14894776}
   m_Layer: 9
   m_Name: Hellephant
   m_TagString: Untagged
@@ -322,6 +323,18 @@ SkinnedMeshRenderer:
     m_Center: {x: -1.06974268, y: -.00205290318, z: .34928906}
     m_Extent: {x: 1.10277486, y: 1.46419728, z: 1.46432257}
   m_DirtyAABB: 0
+--- !u!148 &14894776
+NetworkView:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
+  m_StateSynchronization: 1
+  m_Observed: {fileID: 400000}
+  m_ViewID:
+    m_ID: 0
+    m_Type: 0
 --- !u!195 &19500000
 NavMeshAgent:
   m_ObjectHideFlags: 1
