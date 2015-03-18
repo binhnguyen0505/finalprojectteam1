@@ -24,7 +24,7 @@ namespace CompleteProject
             playerHealth = player.GetComponent <PlayerHealth> ();
             enemyHealth = GetComponent<EnemyHealth>();
             anim = GetComponent <Animator> ();
-			Debug.Log (player.name);
+
         }
 
 
