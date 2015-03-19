@@ -46,7 +46,7 @@ public class NetworkManager : MonoBehaviour
 
     private void StartServer()
     {
-        Network.InitializeServer(5, 22255, !Network.HavePublicAddress());
+        Network.InitializeServer(5, 23466, !Network.HavePublicAddress());
         MasterServer.RegisterHost(typeName, gameName);
 		EnemyManager[] arrNet; 
 		//TODO 
