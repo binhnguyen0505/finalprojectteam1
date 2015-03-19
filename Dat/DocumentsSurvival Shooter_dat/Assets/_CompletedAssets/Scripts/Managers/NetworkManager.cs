@@ -11,7 +11,7 @@ public class NetworkManager : MonoBehaviour
     private HostData[] hostList;
 	//public GameObject enemy;
     public GameObject playerPrefab;
-
+	public PlayerPoint[] _ArraryPlayer;
 	//public PlayerHealth playerHealth;       // Reference to the player's heatlh.
 	//public GameObject enemy;                // The enemy prefab to be spawned.
 	//public float spawnTime = 3f;            // How long between each spawn.
@@ -41,7 +41,7 @@ public class NetworkManager : MonoBehaviour
 
 	void Start()
 	{
-		MasterServer.ipAddress = "192.168.1.78";
+		MasterServer.ipAddress = "192.168.20.23";
 
 	}
 
@@ -123,6 +123,7 @@ public class NetworkManager : MonoBehaviour
 		//healthSlider.value = p.currentHealth;
 		var Slider = GameObject.FindGameObjectWithTag ("SliderHealth");
 		Slider.GetComponent<CameraFollowSlider> ().target = p.transform;
-		Canvas SliderHealth = GetComponent<Canvas> ();
+
+
     }
 }
