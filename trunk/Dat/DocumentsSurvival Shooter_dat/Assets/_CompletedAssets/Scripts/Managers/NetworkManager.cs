@@ -17,7 +17,6 @@ public class NetworkManager : MonoBehaviour
 	//public float spawnTime = 3f;            // How long between each spawn.
 	//public Transform[] spawnPoints ;         // An array of the spawn points this enemy can spawn from.
 
-
     void OnGUI()
     {
         if (!Network.isClient && !Network.isServer)
@@ -49,8 +48,14 @@ public class NetworkManager : MonoBehaviour
     {
         Network.InitializeServer(5, 22255, !Network.HavePublicAddress());
         MasterServer.RegisterHost(typeName, gameName);
-
+		EnemyManager[] arrNet; 
 		//TODO 
+		arrNet = GetComponents<EnemyManager> ();
+		Debug.Log(arrNet.Length);
+		foreach (EnemyManager item   in arrNet) {
+			item.enabled=true;
+			Debug.Log("run");
+				}
 
 		//enemy.SetActive(true);
 		//InvokeRepeating ("Spawn", spawnTime, spawnTime);
