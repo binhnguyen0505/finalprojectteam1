@@ -15,7 +15,7 @@ namespace CompleteProject
         public float flashSpeed = 5f;                               // The speed the damageImage will fade at.
         public Color flashColour = new Color(1f, 0f, 0f, 0.1f);     // The colour the damageImage is set to, to flash.
 		public double PlayerScore =0;
-
+		double templeScore =0;
 
 
         Animator anim;                                              // Reference to the Animator component.
@@ -56,12 +56,16 @@ namespace CompleteProject
 
             // Reset the damaged flag.
             damaged = false;
+
+			if (templeScore != PlayerScore) {
+				updatePlayer(PlayerScore);			
+			}
         }
 		[RPC] void updatePlayer(double score)
 		{
 			PlayerScore = score;
 			if (networkView.isMine)
-				networkView.RPC("Death", RPCMode.OthersBuffered,score);
+				networkView.RPC("updatePlayer", RPCMode.OthersBuffered,score);
 		}
 
         public void TakeDamage (int amount)
