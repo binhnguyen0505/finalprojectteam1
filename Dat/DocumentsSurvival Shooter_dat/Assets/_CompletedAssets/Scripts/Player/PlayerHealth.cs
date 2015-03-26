@@ -38,8 +38,7 @@ namespace CompleteProject
             currentHealth = startingHealth;
 
         }
-
-
+			
         void Update ()
         {
             // If the player has just been damaged...
