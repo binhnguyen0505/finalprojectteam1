@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace CompleteProject
 {
@@ -82,8 +82,8 @@ namespace CompleteProject
 					if(temple==ID_Player)
 					{
 						var playerhealth =item.GetComponent<PlayerHealth>();
-						playerhealth.point +=pointdie;
-						Debug.Log("diem player "+playerhealth.point);
+						playerhealth.PlayerScore +=pointdie;
+						Debug.Log("diem player "+playerhealth.PlayerScore);
 					}
 				}
 
