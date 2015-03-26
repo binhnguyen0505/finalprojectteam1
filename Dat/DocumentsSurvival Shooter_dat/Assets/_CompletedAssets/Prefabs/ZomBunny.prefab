@@ -242,6 +242,7 @@ MonoBehaviour:
   sinkSpeed: 2.5
   scoreValue: 10
   deathClip: {fileID: 8300000, guid: 1d3bfb9269f136947bf8ac164cace1ff, type: 3}
+  pointdie: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

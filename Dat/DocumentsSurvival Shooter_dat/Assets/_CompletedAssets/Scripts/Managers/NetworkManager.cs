@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using CompleteProject;
+using UnityEngine.UI;
 
 public class NetworkManager : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class NetworkManager : MonoBehaviour
 	//public GameObject enemy;
     public GameObject playerPrefab;
 	public PlayerPoint[] _ArraryPlayer;
+	public UISlider slider;
+
+
 	//public PlayerHealth playerHealth;       // Reference to the player's heatlh.
 	//public GameObject enemy;                // The enemy prefab to be spawned.
 	//public float spawnTime = 3f;            // How long between each spawn.
@@ -40,7 +44,7 @@ public class NetworkManager : MonoBehaviour
 
 	void Start()
 	{
-		MasterServer.ipAddress = "192.168.20.23";
+		MasterServer.ipAddress = "192.168.20.19";
 
 	}
 
@@ -126,8 +130,9 @@ public class NetworkManager : MonoBehaviour
 		camera.GetComponent<CameraFollow> ().target = p.transform;
 		//Slider healthSlider = GetComponent<Slider> ();
 		//healthSlider.value = p.currentHealth;
-		var Slider = GameObject.FindGameObjectWithTag ("SliderHealth");
-		Slider.GetComponent<CameraFollowSlider> ().target = p.transform;
+		//Slider _Slider = transform.gameObject.GetComponent<Slider>();
+		//Debug.Log (p.GetComponent<PlayerHealth> ().startingHealth.ToString ());
+		//LBPoint.text =p.GetComponent<PlayerHealth>().currentHealth.ToString();
 
 
     }
