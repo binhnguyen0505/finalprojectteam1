@@ -13,8 +13,8 @@ public class NetworkManager : MonoBehaviour
 	//public GameObject enemy;
     public GameObject playerPrefab;
 	public PlayerPoint[] _ArraryPlayer;
-	public UISlider slider;
-
+	public Slider slider;
+	private GameObject p;
 
 	//public PlayerHealth playerHealth;       // Reference to the player's heatlh.
 	//public GameObject enemy;                // The enemy prefab to be spawned.
@@ -80,7 +80,10 @@ public class NetworkManager : MonoBehaviour
             isRefreshingHostList = false;
             hostList = MasterServer.PollHostList();
         }
+		if (networkView.isMine) {
 
+			slider.value=p.GetComponent<PlayerHealth> ().percentHealth ;
+		}
     }
 
     private void RefreshHostList()
@@ -124,7 +127,7 @@ public class NetworkManager : MonoBehaviour
 
     private void SpawnPlayer()
     {
-         GameObject p= Network.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity, 0) as GameObject;
+        p = Network.Instantiate(playerPrefab, Vector3.zero, Quaternion.identity, 0) as GameObject;
 		
 		var camera = GameObject.FindGameObjectWithTag ("MainCamera");
 		camera.GetComponent<CameraFollow> ().target = p.transform;
