@@ -111,7 +111,14 @@ namespace CompleteProject
                 if(enemyHealth != null)
                 {
                     // ... the enemy should take damage.
+					if(networkView.isMine)
+					{
+						NetworkViewID index=transform.parent.networkView.viewID;
+						Debug.Log("ID: "+index);
+						enemyHealth.ID_Player=index;
+					}
                     enemyHealth.TakeDamage (damagePerShot, shootHit.point);
+					Debug.Log("ban");
                 }
 
                 // Set the second position of the line renderer to the point the raycast hit.

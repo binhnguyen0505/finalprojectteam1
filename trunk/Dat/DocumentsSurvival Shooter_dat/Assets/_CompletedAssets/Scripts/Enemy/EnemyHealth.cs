@@ -9,7 +9,8 @@ namespace CompleteProject
         public float sinkSpeed = 2.5f;              // The speed at which the enemy sinks through the floor when dead.
         public int scoreValue = 10;                 // The amount added to the player's score when the enemy dies.
         public AudioClip deathClip;                 // The sound to play when the enemy dies.
-
+		public NetworkViewID ID_Player;
+		public int pointdie;
 
         Animator anim;                              // Reference to the animator.
         AudioSource enemyAudio;                     // Reference to the audio source.
@@ -44,6 +45,10 @@ namespace CompleteProject
 	            }
 			}
         }
+		public void GetPlayer(int ID_Player)
+		{
+			
+		}
 
 
         public void TakeDamage (int amount, Vector3 hitPoint)
@@ -58,6 +63,7 @@ namespace CompleteProject
 
             // Reduce the current health by the amount of damage sustained.
             currentHealth -= amount;
+
             
             // Set the position of the particle system to where the hit was sustained.
             hitParticles.transform.position = hitPoint;
@@ -68,8 +74,23 @@ namespace CompleteProject
             // If the current health is less than or equal to zero...
             if(currentHealth <= 0)
             {
+				GameObject[] Players=GameObject.FindGameObjectsWithTag("Player");
+				Debug.Log(Players.Length);
+				foreach(GameObject item in Players)
+				{
+					NetworkViewID temple=item.networkView.viewID;
+					if(temple==ID_Player)
+					{
+						var playerhealth =item.GetComponent<PlayerHealth>();
+						playerhealth.point +=pointdie;
+						Debug.Log("diem player "+playerhealth.point);
+					}
+				}
+
+
                 // ... the enemy is dead.
                 Death ();
+
             }
         }
 
