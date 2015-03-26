@@ -57,7 +57,12 @@ namespace CompleteProject
             // Reset the damaged flag.
             damaged = false;
         }
-
+		[RPC] void updatePlayer(double score)
+		{
+			PlayerScore = score;
+			if (networkView.isMine)
+				networkView.RPC("Death", RPCMode.OthersBuffered,score);
+		}
 
         public void TakeDamage (int amount)
         {
