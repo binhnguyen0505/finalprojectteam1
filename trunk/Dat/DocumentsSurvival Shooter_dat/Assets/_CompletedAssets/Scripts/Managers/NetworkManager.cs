@@ -93,7 +93,7 @@ public class NetworkManager : MonoBehaviour
 		double temple=0;
 		foreach (GameObject item in allplayer) 
 		{
-			temple += item.GetComponent<PlayerHealth>().PlayerScore;
+			temple += item.GetComponent<PlayerHealth>().PlayerScoreTemple;
 		}
 		txtScoreAll.text= temple.ToString();
 
