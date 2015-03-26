@@ -17,7 +17,7 @@ public class NetworkManager : MonoBehaviour
 	public Text txtScore;
 	public Text txtScoreAll;
 	private GameObject p;
-	private double ScoreALl;
+
 
 	//public PlayerHealth playerHealth;       // Reference to the player's heatlh.
 	//public GameObject enemy;                // The enemy prefab to be spawned.
@@ -83,13 +83,13 @@ public class NetworkManager : MonoBehaviour
             isRefreshingHostList = false;
             hostList = MasterServer.PollHostList();
         }
-		if (networkView.isMine) {
-
-			slider.value=p.GetComponent<PlayerHealth> ().percentHealth ;
+		if(p!=null)
+		{
+			slider.value=p.GetComponent<PlayerHealth>().percentHealth;
 			txtScore.text=p.GetComponent<PlayerHealth>().PlayerScore.ToString();
 		}
 		GameObject[] allplayer = GameObject.FindGameObjectsWithTag ("Player");
-		Debug.Log (allplayer.Length);
+		Debug.Log ("Number Player :"+allplayer.Length);
 		double temple=0;
 		foreach (GameObject item in allplayer) 
 		{
