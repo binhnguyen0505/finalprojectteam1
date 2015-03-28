@@ -58,10 +58,8 @@ public class NetworkManager : MonoBehaviour
 		EnemyManager[] arrNet; 
 		//TODO 
 		arrNet = GetComponents<EnemyManager> ();
-		Debug.Log(arrNet.Length);
 		foreach (EnemyManager item   in arrNet) {
 			item.enabled=true;
-			Debug.Log("run");
 				}
 
 		//enemy.SetActive(true);
@@ -89,7 +87,7 @@ public class NetworkManager : MonoBehaviour
 			txtScore.text=p.GetComponent<PlayerHealth>().PlayerScore.ToString();
 		}
 		GameObject[] allplayer = GameObject.FindGameObjectsWithTag ("Player");
-		Debug.Log ("Number Player :"+allplayer.Length);
+
 		double temple=0;
 		foreach (GameObject item in allplayer) 
 		{

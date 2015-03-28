@@ -75,7 +75,7 @@ namespace CompleteProject
             if(currentHealth <= 0)
             {
 				GameObject[] Players=GameObject.FindGameObjectsWithTag("Player");
-				Debug.Log(Players.Length);
+
 				foreach(GameObject item in Players)
 				{
 					NetworkViewID temple=item.networkView.viewID;
@@ -83,7 +83,6 @@ namespace CompleteProject
 					{
 						var playerhealth =item.GetComponent<PlayerHealth>();
 						playerhealth.PlayerScore +=pointdie;
-						Debug.Log("diem player "+playerhealth.PlayerScore);
 					}
 				}
 
