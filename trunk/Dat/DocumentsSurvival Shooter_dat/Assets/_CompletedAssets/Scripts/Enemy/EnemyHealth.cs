@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 namespace CompleteProject
 {
     public class EnemyHealth : MonoBehaviour
@@ -128,8 +128,15 @@ namespace CompleteProject
             ScoreManager.score += scoreValue;
 
             // After 2 seconds destory the enemy.
-            Destroy (gameObject, 2f);
-			Network.Destroy (gameObject.networkView.viewID);
+			StartCoroutine (DestroyAfter ());
+            //Destroy (gameObject, 2f);
+
         }
-    }
+		public IEnumerator  DestroyAfter()
+		{
+			yield return new WaitForSeconds(2.0f);
+			Network.Destroy (gameObject.networkView.viewID);
+
+		}
+	}
 }
