@@ -47,13 +47,13 @@ public class NetworkManager : MonoBehaviour
 
 	void Start()
 	{
-		MasterServer.ipAddress = "192.168.20.19";
+		MasterServer.ipAddress = "192.168.41.11";
 
 	}
 
     private void StartServer()
     {
-        Network.InitializeServer(5, 23466, !Network.HavePublicAddress());
+        Network.InitializeServer(5, 22255, !Network.HavePublicAddress());
         MasterServer.RegisterHost(typeName, gameName);
 		EnemyManager[] arrNet; 
 		//TODO 
