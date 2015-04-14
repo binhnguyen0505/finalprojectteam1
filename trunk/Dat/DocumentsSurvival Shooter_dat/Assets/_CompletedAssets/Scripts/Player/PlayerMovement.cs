@@ -5,6 +5,7 @@ namespace CompleteProject
 {
     public class PlayerMovement : MonoBehaviour
     {
+		Joystick LookJoystick;
         public float speed = 6f;            // The speed that the player will move at.
 
         public Vector3 movement;                   // The vector to store the direction of the player's movement.
@@ -56,7 +57,7 @@ namespace CompleteProject
             }
 #else
 
-            Vector3 turnDir = new Vector3(CrossPlatformInputManager.GetAxisRaw("Mouse X") , 0f , CrossPlatformInputManager.GetAxisRaw("Mouse Y"));
+			Vector3 turnDir = new Vector3(CrossPlatformInputManager.GetAxisRaw("HorizontalLook") , 0f , CrossPlatformInputManager.GetAxisRaw("VerticalLook"));
 
             if (turnDir != Vector3.zero)
             {
@@ -87,7 +88,7 @@ namespace CompleteProject
 				Move (h, v);
 				// Turn the player to face the mouse cursor.
 				Turning ();
-				
+				//LookJoystick.Rotate(transform, 5);
 				// Animate the player.
 				
 				Animating (h, v);
