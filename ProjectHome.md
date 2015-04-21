@@ -1,0 +1,1 @@
+Managing resources about designing and coding
